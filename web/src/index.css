@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #0a0a0f;
+  color: #e5e5eb;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}

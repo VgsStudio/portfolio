@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output
+web/dist/
+
+# Personal research notes — not part of the public portfolio
+info-vitor/
+
+# Claude Code local state
+.claude/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
