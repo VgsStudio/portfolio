@@ -110,9 +110,9 @@ Adicionar um material novo = editar este JSON + `aws s3 cp arquivo.pdf s3://mate
 - [x] **Fase 2 — Scaffold frontend:** Vite + React + TS + Tailwind v4 + Framer Motion em `web/`, todas as seções com conteúdo real (Sobre, Experiência, Projetos, Certificações, Palestras, Contato).
 - [x] **Fase 3 — Infra base (CDK):** `infra/` — `CertStack` (ACM us-east-1) + `SiteStack` (S3 + CloudFront OAC + Route53 alias A/AAAA para apex e www) — **deployado na conta pessoal (605914448173, profile `personal-vitor`)**. Site no ar em https://vsoller.com.br.
 - [x] **Fase 4 — CI/CD:** `GithubOidcStack` (role `github-actions-portfolio-deploy`, trust restrito a `VgsStudio/portfolio@main`) + `.github/workflows/deploy.yml` (build → `cdk deploy --all`, sem access keys). Push em `main` deploya automaticamente.
-- [ ] **Fase 5 — Seção Palestras & Materiais dinâmica:** hoje o conteúdo é hardcoded nos componentes React; falta extrair pra JSON/dados versionados conforme o modelo content-as-code abaixo, e criar o bucket de materiais para PDFs/PPTs.
-- [ ] **Fase 6 — Polish adicional:** SEO (meta tags, OG image, sitemap), analytics leve, acessibilidade.
-- [ ] **Fase 7 — Lançamento:** revisão final, compartilhar no LinkedIn/GitHub.
+- [ ] **Fase 5 — Conteúdo como código:** hoje o conteúdo é hardcoded em TS (`web/src/data/certifications.ts`, `experience.ts`, `talks.ts`, e inline em `Projects.tsx`); falta extrair pra JSON versionado conforme o modelo content-as-code acima, e criar o bucket de materiais (PDF/PPT) para o TCC e futuros itens.
+- [ ] **Fase 6 — Polish adicional:** SEO (meta tags, OG image, sitemap), analytics leve, acessibilidade (contraste, `alt` em imagens, navegação por teclado).
+- [ ] **Fase 7 — Lançamento:** revisão final de conteúdo, teste em mobile, compartilhar no LinkedIn/GitHub.
 
 ### Como fazer deploy hoje
 
@@ -129,6 +129,12 @@ cd ../infra && npx cdk deploy --all --profile personal-vitor
 
 ## Próximos passos imediatos
 
-1. Reunir foto, bio e textos (Fase 0) — sem isso o design trava.
-2. Decidir paleta/tema visual (ex: dark mode tech, acentos laranja AWS ou identidade própria).
-3. Rodar o scaffold do Vite e já validar o layout do Hero (nome grande + foto) antes de avançar pro resto.
+Fases 0–4 concluídas: site no ar em https://vsoller.com.br, repo publicado em [VgsStudio/portfolio](https://github.com/VgsStudio/portfolio), deploy automático via GitHub Actions validado ponta a ponta.
+
+1. **Fase 5 — Conteúdo como código:** extrair `certifications.ts` / `experience.ts` / `talks.ts` / dados de projetos (hoje inline em `Projects.tsx`) para JSON em `web/src/content/`; criar o bucket S3 dedicado a materiais e subir os primeiros PDFs/PPTs do TCC.
+2. **Fase 6 — Polish:** meta tags OG/Twitter, `sitemap.xml`, favicon, checagem de acessibilidade.
+3. **Fase 7 — Lançamento:** revisão final e divulgação.
+
+### Nota técnica — OIDC e sub claim do GitHub
+
+A trust policy do `GithubOidcStack` usa o valor exato da claim `sub` que o GitHub envia, incluindo os IDs imutáveis de owner/repo (`repo:VgsStudio@81604963/portfolio@1324538764:ref:refs/heads/main`), não só os nomes. Se o `AssumeRoleWithWebIdentity` voltar a falhar com `AccessDenied` após um rename/transfer do repo, confira o valor real em um evento `AssumeRoleWithWebIdentity` no CloudTrail (`userIdentity.userName`) antes de mexer na policy.
