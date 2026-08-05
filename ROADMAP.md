@@ -109,12 +109,16 @@ Adicionar um material novo = editar este JSON + `aws s3 cp arquivo.pdf s3://mate
 - [x] **Fase 1 — Design:** tema dark com acentos laranja/azul, tipografia Inter, Hero com nome grande + foto + mosaico de certificações logo abaixo.
 - [x] **Fase 2 — Scaffold frontend:** Vite + React + TS + Tailwind v4 + Framer Motion em `web/`, todas as seções com conteúdo real (Sobre, Experiência, Projetos, Certificações, Palestras, Contato).
 - [x] **Fase 3 — Infra base (CDK):** `infra/` — `CertStack` (ACM us-east-1) + `SiteStack` (S3 + CloudFront OAC + Route53 alias A/AAAA para apex e www) — **deployado na conta pessoal (605914448173, profile `personal-vitor`)**. Site no ar em https://vsoller.com.br.
-- [ ] **Fase 4 — CI/CD:** IAM role OIDC para GitHub Actions, workflow de build+deploy+invalidation (hoje o deploy é manual via `cdk deploy --profile personal-vitor` depois de `npm run build` no `web/`).
+- [x] **Fase 4 — CI/CD:** `GithubOidcStack` (role `github-actions-portfolio-deploy`, trust restrito a `VgsStudio/portfolio@main`) + `.github/workflows/deploy.yml` (build → `cdk deploy --all`, sem access keys). Push em `main` deploya automaticamente.
 - [ ] **Fase 5 — Seção Palestras & Materiais dinâmica:** hoje o conteúdo é hardcoded nos componentes React; falta extrair pra JSON/dados versionados conforme o modelo content-as-code abaixo, e criar o bucket de materiais para PDFs/PPTs.
 - [ ] **Fase 6 — Polish adicional:** SEO (meta tags, OG image, sitemap), analytics leve, acessibilidade.
 - [ ] **Fase 7 — Lançamento:** revisão final, compartilhar no LinkedIn/GitHub.
 
-### Como fazer deploy hoje (manual)
+### Como fazer deploy hoje
+
+Automático: push em `main` dispara o workflow `deploy.yml` (build + `cdk deploy --all` via OIDC).
+
+Manual (fallback local):
 
 ```bash
 cd web && npm run build
