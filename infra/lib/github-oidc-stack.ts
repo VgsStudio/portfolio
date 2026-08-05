@@ -3,7 +3,13 @@ import * as iam from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 
 export interface GithubOidcStackProps extends StackProps {
-  /** "owner/repo", e.g. "VgsStudio/portfolio" */
+  /**
+   * Value GitHub puts in the OIDC token's "sub" claim for this repo, e.g.
+   * "VgsStudio/portfolio". GitHub now embeds immutable owner/repo IDs
+   * (format "owner@ownerId/repo@repoId") — if AssumeRoleWithWebIdentity
+   * fails with AccessDenied, check a CloudTrail AssumeRoleWithWebIdentity
+   * event's userIdentity.userName for the exact value actually sent.
+   */
   githubRepo: string;
   /** CDK bootstrap qualifier — "hnb659fds" unless the environment was bootstrapped with --qualifier */
   cdkQualifier?: string;

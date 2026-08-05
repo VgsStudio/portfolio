@@ -29,5 +29,5 @@ new SiteStack(app, 'VitorPortfolio-Site', {
 
 new GithubOidcStack(app, 'VitorPortfolio-GithubOidc', {
   env,
-  githubRepo: 'VgsStudio/portfolio',
+  githubRepo: 'VgsStudio@81604963/portfolio@1324538764',
 });
