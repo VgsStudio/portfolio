@@ -16,6 +16,9 @@ export interface SiteStackProps extends StackProps {
 }
 
 export class SiteStack extends Stack {
+  public readonly siteBucket: s3.Bucket;
+  public readonly distribution: cloudfront.Distribution;
+
   constructor(scope: Construct, id: string, props: SiteStackProps) {
     super(scope, id, props);
 
@@ -32,6 +35,7 @@ export class SiteStack extends Stack {
       encryption: s3.BucketEncryption.S3_MANAGED,
       removalPolicy: RemovalPolicy.RETAIN,
     });
+    this.siteBucket = siteBucket;
 
     // S3 (via OAC) doesn't auto-resolve "index.html" for sub-paths like a website
     // endpoint would — needed so /materiais/<slug>/ resolves to its index.html.
@@ -78,6 +82,7 @@ function handler(event) {
       ],
       priceClass: cloudfront.PriceClass.PRICE_CLASS_100,
     });
+    this.distribution = distribution;
 
     new s3deploy.BucketDeployment(this, 'DeploySite', {
       sources: [s3deploy.Source.asset(path.join(__dirname, '../../web/dist'))],
@@ -121,6 +126,7 @@ function handler(event) {
     });
 
     new CfnOutput(this, 'DistributionDomainName', { value: distribution.distributionDomainName });
+    new CfnOutput(this, 'DistributionId', { value: distribution.distributionId });
     new CfnOutput(this, 'SiteUrl', { value: `https://${domainName}` });
     new CfnOutput(this, 'BucketName', { value: siteBucket.bucketName });
   }

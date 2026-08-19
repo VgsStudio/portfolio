@@ -3,6 +3,7 @@ import * as cdk from 'aws-cdk-lib';
 import { CertStack } from '../lib/cert-stack';
 import { SiteStack } from '../lib/site-stack';
 import { GithubOidcStack } from '../lib/github-oidc-stack';
+import { TalksOidcStack } from '../lib/talks-oidc-stack';
 
 const DOMAIN_NAME = 'vsoller.com.br';
 const HOSTED_ZONE_ID = 'Z02751983QMG471PEMGX6';
@@ -20,7 +21,7 @@ const certStack = new CertStack(app, 'VitorPortfolio-Cert', {
   hostedZoneId: HOSTED_ZONE_ID,
 });
 
-new SiteStack(app, 'VitorPortfolio-Site', {
+const siteStack = new SiteStack(app, 'VitorPortfolio-Site', {
   env,
   domainName: DOMAIN_NAME,
   hostedZoneId: HOSTED_ZONE_ID,
@@ -30,4 +31,11 @@ new SiteStack(app, 'VitorPortfolio-Site', {
 new GithubOidcStack(app, 'VitorPortfolio-GithubOidc', {
   env,
   githubRepo: 'VgsStudio@81604963/portfolio@1324538764',
+});
+
+new TalksOidcStack(app, 'VitorPortfolio-TalksOidc', {
+  env,
+  githubRepo: 'VgsStudio@81604963/palestras@1339632061',
+  siteBucket: siteStack.siteBucket,
+  distribution: siteStack.distribution,
 });
