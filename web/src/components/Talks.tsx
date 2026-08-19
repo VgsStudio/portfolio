@@ -1,9 +1,27 @@
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import Section from './Section'
-import { talks } from '../data/talks'
+
+interface Talk {
+  title: string
+  date: string
+  description: string
+  href: string
+}
 
 export default function Talks() {
+  const [talks, setTalks] = useState<Talk[]>([])
+
+  useEffect(() => {
+    fetch('/materiais/talks.json')
+      .then((res) => (res.ok ? res.json() : []))
+      .then(setTalks)
+      .catch(() => setTalks([]))
+  }, [])
+
+  if (talks.length === 0) return null
+
   return (
     <Section id="palestras" title="Palestras & Materiais">
       <div className="grid gap-6 md:grid-cols-2">
