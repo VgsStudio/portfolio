@@ -91,16 +91,9 @@ function handler(event) {
       distributionPaths: ['/*'],
     });
 
-    // Palestras/materiais: cada subpasta de web/materials/<slug>/ vira
-    // https://vsoller.com.br/materiais/<slug>/ — HTML completo (index.html + assets)
-    // ou um único arquivo (PDF/PPTX) para download direto.
-    new s3deploy.BucketDeployment(this, 'DeployMaterials', {
-      sources: [s3deploy.Source.asset(path.join(__dirname, '../../web/materials'))],
-      destinationBucket: siteBucket,
-      destinationKeyPrefix: 'materiais',
-      distribution,
-      distributionPaths: ['/materiais/*'],
-    });
+    // Palestras/materiais: publicadas pelo repo VgsStudio/palestras (sync
+    // direto pro prefixo "materiais/" deste bucket via a role restrita em
+    // TalksOidcStack) — não fazem mais parte do deploy do portfólio.
 
     const cfTarget = route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution));
 
