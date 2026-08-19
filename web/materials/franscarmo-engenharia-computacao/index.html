@@ -1302,6 +1302,7 @@ body[data-no-chrome] .artifact-editor-toggle { display: none; }
   .photo { width: 510px; height: 650px; }
   .tcc { width: 800px; height: 520px; }
   .dc { width: 560px; height: 420px; }
+  .split-divider { width: 1px; height: 420px; align-self: center; background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--ink) 22%, transparent) 15%, color-mix(in srgb, var(--ink) 22%, transparent) 85%, transparent); }
   .logo-slot { width: 360px; height: 132px; background: #fff; border-radius: 10px; }
   .logo-slot img { object-fit: contain; padding: 16px; }
   .certs-row { display: flex; flex-direction: column; gap: 12px; }
@@ -1653,10 +1654,11 @@ body[data-no-chrome] .artifact-editor-toggle { display: none; }
 <div class="slide-viewport" style="background: none 0% 0% / auto repeat scroll padding-box border-box rgb(242, 238, 232);"><div class="slide-scale" style="--slide-scale: 0.8870370370370371;"><section class="slide artifact-editable" id="slide-18">
   <span class="eyebrow reveal d1" style="opacity: 0; transform: translateY(28px);"><span class="sl">//</span> comparação com a AWS</span>
   <h2 class="reveal d2" style="opacity: 0; transform: translateY(28px);">O “servidor” é <em>um prédio</em></h2>
-  <div class="split p2" style="grid-template-columns: 560px 1fr; gap: 56px;">
+  <div class="split p2" style="grid-template-columns: 560px 1px 1fr; gap: 40px;">
     <div class="slot dc reveal-scale d3" style="opacity: 0; transform: scale(0.88);">
       <img src="images/datacenter.jpg" alt="Corredor de servidores em um datacenter">
     </div>
+    <div class="split-divider reveal d3" style="opacity: 0; transform: translateY(28px);"></div>
     <div class="rows">
       <div class="stats tight" style="margin-top: 0; gap: 40px;">
         <div class="stat reveal d4" style="opacity: 0; transform: translateY(28px);"><div class="v">200+</div><div class="k">serviços na AWS, de banco de dados a satélite</div></div>
