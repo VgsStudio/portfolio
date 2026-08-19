@@ -54,17 +54,46 @@ function handler(event) {
 `),
     });
 
+    const s3Origin = origins.S3BucketOrigin.withOriginAccessControl(siteBucket);
+
+    // The hosted slide editor (slides.vsoller.com.br) reads talks.json and
+    // each talk's HTML/images straight from here via fetch() — a
+    // cross-origin browser request, so it needs CORS headers on the
+    // response. Scoped to materiais/* only: that content is already fully
+    // public/unauthenticated, everything else on the site is untouched.
+    const materiaisCorsPolicy = new cloudfront.ResponseHeadersPolicy(this, 'MateriaisCorsPolicy', {
+      responseHeadersPolicyName: 'materiais-cors',
+      corsBehavior: {
+        accessControlAllowOrigins: ['https://slides.vsoller.com.br'],
+        accessControlAllowMethods: ['GET', 'HEAD'],
+        accessControlAllowHeaders: ['*'],
+        accessControlAllowCredentials: false,
+        originOverride: true,
+      },
+    });
+
     const distribution = new cloudfront.Distribution(this, 'Distribution', {
       defaultRootObject: 'index.html',
       domainNames: [domainName, wwwDomainName],
       certificate,
       defaultBehavior: {
-        origin: origins.S3BucketOrigin.withOriginAccessControl(siteBucket),
+        origin: s3Origin,
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
         cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
         functionAssociations: [
           { function: directoryIndexFn, eventType: cloudfront.FunctionEventType.VIEWER_REQUEST },
         ],
+      },
+      additionalBehaviors: {
+        'materiais/*': {
+          origin: s3Origin,
+          viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+          cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
+          functionAssociations: [
+            { function: directoryIndexFn, eventType: cloudfront.FunctionEventType.VIEWER_REQUEST },
+          ],
+          responseHeadersPolicy: materiaisCorsPolicy,
+        },
       },
       errorResponses: [
         {
@@ -87,6 +116,11 @@ function handler(event) {
     new s3deploy.BucketDeployment(this, 'DeploySite', {
       sources: [s3deploy.Source.asset(path.join(__dirname, '../../web/dist'))],
       destinationBucket: siteBucket,
+      // materiais/ is synced independently by the palestras repo's own
+      // deploy — exclude filters apply to prune too, so without this any
+      // portfolio deploy silently wipes every published talk (happened
+      // once already; see palestras/CENTRAL.md's infra notes).
+      exclude: ['materiais/*'],
       distribution,
       distributionPaths: ['/*'],
     });
