@@ -1301,8 +1301,13 @@ body[data-no-chrome] .artifact-editor-toggle { display: none; }
   .slot.empty .hint { display: block; }
   .photo { width: 510px; height: 650px; }
   .tcc { width: 800px; height: 520px; }
-  .logo-slot { width: 280px; height: 104px; background: #fff; border-radius: 10px; }
-  .logo-slot img { object-fit: contain; padding: 12px; }
+  .dc { width: 800px; height: 640px; }
+  .logo-slot { width: 360px; height: 132px; background: #fff; border-radius: 10px; }
+  .logo-slot img { object-fit: contain; padding: 16px; }
+  .certs-row { display: flex; flex-direction: column; gap: 12px; }
+  .certs-grid { display: flex; flex-wrap: wrap; gap: 14px; }
+  .certs-grid .cert-badge { width: 104px; height: 104px; object-fit: contain; }
+  .certs-note { font-family: var(--font-mono); font-size: 18px; color: var(--sand); }
 
   .gal { display: grid; gap: 22px; margin-top: 44px; }
   .gal.g4 { grid-template-columns: repeat(4, 1fr); }
@@ -1398,11 +1403,21 @@ body[data-no-chrome] .artifact-editor-toggle { display: none; }
       <h2 class="reveal d2" style="opacity: 0; transform: translateY(28px);">Vitor Soller</h2>
       <div class="row reveal d3" style="opacity: 0; transform: translateY(28px);"><span class="k">formação</span><span class="v">Eng. da Computação, Mauá '25</span></div>
       <div class="row reveal d4" style="opacity: 0; transform: translateY(28px);"><span class="k">hoje</span><span class="v">Projetos + Infra AWS na Dati</span></div>
-      <div class="row reveal d5" style="opacity: 0; transform: translateY(28px);"><span class="k">credenciais</span><span class="v">6x AWS Certified · Qiskit Advocate</span></div>
-      <div class="row reveal d6" style="opacity: 0; transform: translateY(28px);"><span class="k">hobbies</span><span class="v">Escalada indoor e impressão 3D</span></div>
-      <div class="slot logo-slot reveal d7 empty" style="opacity: 0; transform: translateY(28px);">
-        
-        <span class="hint">LOGO MAUÁ</span>
+      <div class="row reveal d5" style="opacity: 0; transform: translateY(28px);"><span class="k">hobbies</span><span class="v">Escalada indoor e impressão 3D</span></div>
+      <div class="certs-row reveal d6" style="opacity: 0; transform: translateY(28px);">
+        <span class="k">certificações</span>
+        <div class="certs-grid">
+          <img class="cert-badge" src="images/01-ccp-cloud-practitioner.png" alt="AWS Certified Cloud Practitioner">
+          <img class="cert-badge" src="images/02-aip-ai-practitioner.png" alt="AWS Certified AI Practitioner">
+          <img class="cert-badge" src="images/03-saa-solutions-architect-associate.png" alt="AWS Certified Solutions Architect – Associate">
+          <img class="cert-badge" src="images/04-dva-developer-associate.png" alt="AWS Certified Developer – Associate">
+          <img class="cert-badge" src="images/05-sap-solutions-architect-professional.png" alt="AWS Certified Solutions Architect – Professional">
+          <img class="cert-badge" src="images/06-scs-security-specialty.png" alt="AWS Certified Security – Specialty">
+        </div>
+        <span class="certs-note">+ Qiskit Advocate (IBM)</span>
+      </div>
+      <div class="slot logo-slot reveal d7" style="opacity: 0; transform: translateY(28px);">
+        <img src="images/maua-logo.svg" alt="Instituto Mauá de Tecnologia">
       </div>
     </div>
   </div>
@@ -1451,12 +1466,12 @@ body[data-no-chrome] .artifact-editor-toggle { display: none; }
       <figcaption><b>Bot que me ensina alemão</b><span>Nuvem · custo quase zero</span></figcaption>
     </figure>
     <figure class="reveal d5" style="opacity: 0; transform: translateY(28px);">
-      <div class="slot ph empty"><span class="hint">FOTO<br>projeto-3.jpg</span></div>
-      <figcaption><b>Campeonato de IA</b><span>Cobrinha que joga sozinha</span></figcaption>
+      <div class="slot ph"><img src="images/projeto-battlesnake.jpg" alt="Diagrama da API serverless em Python e FastAPI para o campeonato Battlesnake" style="object-fit: contain; background: #fff; padding: 20px; box-sizing: border-box;"></div>
+      <figcaption><b>Campeonato de IA</b><span>Backend serverless que eu montei</span></figcaption>
     </figure>
     <figure class="reveal d6" style="opacity: 0; transform: translateY(28px);">
-      <div class="slot ph empty"><span class="hint">FOTO<br>projeto-4.jpg</span></div>
-      <figcaption><b>App de comida do campus</b><span>Usado por gente de verdade</span></figcaption>
+      <div class="slot ph"><img src="images/projeto-dev-in-the-dark.webp" alt="Evento Dev In The Dark: competição de frontend às cegas"></div>
+      <figcaption><b>Dev In The Dark</b><span>Infra que publica o site vencedor ao vivo</span></figcaption>
     </figure>
   </div>
   <span class="note">tudo começou com curiosidade, não com aula</span>
@@ -1473,7 +1488,7 @@ body[data-no-chrome] .artifact-editor-toggle { display: none; }
     </figure>
     <figure class="reveal d4" style="opacity: 0; transform: translateY(28px);">
       <div class="slot ph empty"><span class="hint">FOTO<br>vida-2.jpg</span></div>
-      <figcaption><b>Festa e atlética</b><span>Existe vida entre as provas</span></figcaption>
+      <figcaption><b>Festa</b><span>Existe vida entre as provas</span></figcaption>
     </figure>
     <figure class="reveal d5" style="opacity: 0; transform: translateY(28px);">
       <div class="slot ph empty"><span class="hint">FOTO<br>vida-3.jpg</span></div>
@@ -1566,14 +1581,14 @@ body[data-no-chrome] .artifact-editor-toggle { display: none; }
 <!-- 13 · AMIGOS · FOTOS -->
 <div class="slide-viewport" style="background: none 0% 0% / auto repeat scroll padding-box border-box rgb(22, 19, 15);"><div class="slide-scale" style="--slide-scale: 0.8870370370370371;"><section class="slide dk artifact-editable" id="slide-13">
   <span class="eyebrow reveal d1" style="opacity: 0; transform: translateY(28px);"><span class="sl">//</span> minha turma, cinco anos depois</span>
-  <h2 class="reveal d2" style="opacity: 0; transform: translateY(28px);">Mesma sala. <em>Nove destinos diferentes.</em></h2>
+  <h2 class="reveal d2" style="opacity: 0; transform: translateY(28px);">Mesma sala. <em>Caminhos bem diferentes.</em></h2>
   <div class="gal g3">
     <figure class="reveal d3" style="opacity: 0; transform: translateY(28px);">
       <div class="slot ph empty"><span class="hint">FOTO COM AMIGOS<br>amigos-1.jpg</span></div>
       <figcaption><b>Turma de Eng. Computação</b><span>Mauá · 2021 a 2025</span></figcaption>
     </figure>
     <figure class="reveal d4" style="opacity: 0; transform: translateY(28px);">
-      <div class="slot ph"><img src="images/amigos-dev-community.webp" alt="Equipe da Dev. Community Mauá no evento Dev In The Dark"></div>
+      <div class="slot ph empty"><span class="hint">FOTO COM AMIGOS<br>amigos-2.jpg</span></div>
       <figcaption><b>Grupo acadêmico</b><span>Dev. Community Mauá</span></figcaption>
     </figure>
     <figure class="reveal d5" style="opacity: 0; transform: translateY(28px);">
@@ -1581,7 +1596,6 @@ body[data-no-chrome] .artifact-editor-toggle { display: none; }
       <figcaption><b>Formatura</b><span>Cada um foi pra um lado</span></figcaption>
     </figure>
   </div>
-  <span class="note">vou contar o que cada um faz hoje</span>
 </section></div></div>
 
 <!-- 14 · DESTINOS A -->
@@ -1593,7 +1607,7 @@ body[data-no-chrome] .artifact-editor-toggle { display: none; }
     <div class="card o reveal d4" style="opacity: 0; transform: translateY(28px);"><span class="lbl">inteligência artificial</span><h3>IA / ML</h3><p>Treina e coloca modelo em produção.</p><p class="nc">Quase tudo é limpar dado. O modelo é a parte fácil.</p></div>
     <div class="card reveal d5" style="opacity: 0; transform: translateY(28px);"><span class="lbl">infraestrutura</span><h3>Redes</h3><p>Faz o pacote sair daqui e chegar lá.</p><p class="nc">Quando funciona, ninguém lembra que você existe.</p></div>
     <div class="card o reveal d6" style="opacity: 0; transform: translateY(28px);"><span class="lbl">cloud</span><h3>Nuvem</h3><p>Projeta e opera a infra onde tudo vive.</p><p class="nc">Paga muito sem exigir que você seja gênio em código.</p></div>
-    <div class="card r reveal d7" style="opacity: 0; transform: translateY(28px);"><span class="lbl">segurança</span><h3>Cibersegurança</h3><p>Ataca e defende sistemas de verdade.</p><p class="nc">Ninguém entra júnior aqui. É segunda carreira.</p></div>
+    <div class="card r reveal d7" style="opacity: 0; transform: translateY(28px);"><span class="lbl">segurança</span><h3>Cibersegurança</h3><p>Ataca e defende sistemas de verdade.</p><p class="nc">Dá pra entrar júnior, sim — com bastante estudo extra.</p></div>
   </div>
 </section></div></div>
 
@@ -1624,7 +1638,7 @@ body[data-no-chrome] .artifact-editor-toggle { display: none; }
 
 <!-- 17 · O MERCADO · GARTNER -->
 <div class="slide-viewport" style="background: none 0% 0% / auto repeat scroll padding-box border-box rgb(22, 19, 15);"><div class="slide-scale" style="--slide-scale: 0.8870370370370371;"><section class="slide dk artifact-editable" id="slide-17">
-  <span class="eyebrow reveal d1" style="opacity: 0; transform: translateY(28px);"><span class="sl">//</span> o tamanho do jogo</span>
+  <span class="eyebrow reveal d1" style="opacity: 0; transform: translateY(28px);"><span class="sl">//</span> o tamanho do jogo · área de estudo: nuvem</span>
   <h2 class="reveal d2" style="opacity: 0; transform: translateY(28px);">Quanto dinheiro está em cima disso</h2>
   <div class="stats tight">
     <div class="stat reveal d3" style="opacity: 0; transform: translateY(28px);"><div class="v">$850B</div><div class="k">gastos com nuvem pública em 2026</div></div>
@@ -1637,14 +1651,22 @@ body[data-no-chrome] .artifact-editor-toggle { display: none; }
 
 <!-- 18 · NUVEM -->
 <div class="slide-viewport" style="background: none 0% 0% / auto repeat scroll padding-box border-box rgb(242, 238, 232);"><div class="slide-scale" style="--slide-scale: 0.8870370370370371;"><section class="slide artifact-editable" id="slide-18">
-  <span class="eyebrow reveal d1" style="opacity: 0; transform: translateY(28px);"><span class="sl">//</span> lembra da carga elétrica? chegou a hora</span>
+  <span class="eyebrow reveal d1" style="opacity: 0; transform: translateY(28px);"><span class="sl">//</span> e por trás da nuvem, hardware de verdade</span>
   <h2 class="reveal d2" style="opacity: 0; transform: translateY(28px);">O “servidor” é <em>um prédio</em></h2>
-  <div class="stats">
-    <div class="stat reveal d3" style="opacity: 0; transform: translateY(28px);"><div class="v">200+</div><div class="k">serviços na AWS, de banco de dados a satélite</div></div>
-    <div class="stat r reveal d4" style="opacity: 0; transform: translateY(28px);"><div class="v">33</div><div class="k">regiões, ligadas por cabo no fundo do oceano</div></div>
-    <div class="stat reveal d5" style="opacity: 0; transform: translateY(28px);"><div class="v">2min</div><div class="k">é o que você leva pra subir sua infra lá dentro, do seu quarto</div></div>
+  <div class="split p2">
+    <div class="slot dc reveal-scale d3" style="opacity: 0; transform: scale(0.88);">
+      <img src="images/datacenter.jpg" alt="Corredor de servidores em um datacenter">
+    </div>
+    <div class="rows">
+      <div class="stats" style="margin-top: 0;">
+        <div class="stat reveal d4" style="opacity: 0; transform: translateY(28px);"><div class="v">200+</div><div class="k">serviços na AWS, de banco de dados a satélite</div></div>
+        <div class="stat r reveal d5" style="opacity: 0; transform: translateY(28px);"><div class="v">33</div><div class="k">regiões, ligadas por cabo no fundo do oceano</div></div>
+        <div class="stat reveal d6" style="opacity: 0; transform: translateY(28px);"><div class="v">2min</div><div class="k">é o que você leva pra subir sua infra lá dentro, do seu quarto</div></div>
+      </div>
+      <p class="reveal d7" style="margin-top: 34px; opacity: 0; transform: translateY(28px);">Resfriamento, carga elétrica, energia renovável. <strong>Ainda acha que eletricidade não tem a ver com computação?</strong></p>
+    </div>
   </div>
-  <p class="reveal d6" style="margin-top: 50px; opacity: 0; transform: translateY(28px);">Resfriamento, carga elétrica, energia renovável. <strong>Ainda acha que eletricidade não tem a ver com computação?</strong></p>
+  <div class="src reveal d8" style="opacity: 0; transform: translateY(28px);">Foto: BalticServers.com (Wikimedia Commons, CC BY-SA 3.0)</div>
   <span class="note">é isso que deixa dois adolescentes competirem com uma multinacional</span>
 </section></div></div>
 
@@ -1713,7 +1735,7 @@ body[data-no-chrome] .artifact-editor-toggle { display: none; }
 <!-- 25 · FECHAMENTO -->
 <div class="slide-viewport" style="background: none 0% 0% / auto repeat scroll padding-box border-box rgb(22, 19, 15);"><div class="slide-scale" style="--slide-scale: 0.8870370370370371;"><section class="slide dk st artifact-editable" id="slide-25">
   <h1 class="reveal-scale d1" style="opacity: 0; transform: scale(0.88);">Aos 17 você não<br>escolhe um cargo.<br><em>Escolhe uma base.</em></h1>
-  <p class="kick reveal d3" style="margin-top: 48px; opacity: 0; transform: translateY(28px);">E ela te leva muito além do salão e da cozinha.</p>
+  <p class="kick reveal d3" style="margin-top: 48px; opacity: 0; transform: translateY(28px);">E ela te leva muito mais longe do que você imagina.</p>
 </section></div></div>
 
 <!-- 26 · QR -->
@@ -1726,8 +1748,8 @@ body[data-no-chrome] .artifact-editor-toggle { display: none; }
       <span class="cap">LinkedIn</span><span class="sub2">in/vitor-soller</span>
     </div>
     <div class="qr reveal d4" style="opacity: 0; transform: translateY(28px);">
-      <div class="box slot"><img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&amp;data=https://vsoller.com.br/materiais/certificado-antes-de-formado/" alt="QR code para a apresentação sobre certificações AWS"></div>
-      <span class="cap">Certificações</span><span class="sub2">6x AWS Certified</span>
+      <div class="box slot"><img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&amp;data=https://wa.me/5511991758098?text=Oi%2C%20Vitor%21%20Quero%20conhecer%20mais%20sobre%20engenharia%20da%20computa%C3%A7%C3%A3o%2C%20vamos%20conversar%3F" alt="QR code para conversar no WhatsApp com o Vitor"></div>
+      <span class="cap">WhatsApp</span><span class="sub2">vamos conversar?</span>
     </div>
     <div class="qr reveal d5" style="opacity: 0; transform: translateY(28px);">
       <div class="box slot"><img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&amp;data=https://vsoller.com.br" alt="QR code para o portfólio"></div>
