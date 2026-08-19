@@ -56,20 +56,34 @@ function handler(event) {
 
     const s3Origin = origins.S3BucketOrigin.withOriginAccessControl(siteBucket);
 
-    // The hosted slide editor (slides.vsoller.com.br) reads talks.json and
-    // each talk's HTML/images straight from here via fetch() — a
-    // cross-origin browser request, so it needs CORS headers on the
-    // response. Scoped to materiais/* only: that content is already fully
-    // public/unauthenticated, everything else on the site is untouched.
+    // The hosted slide editor (deck.vsoller.com.br, renamed from
+    // slides.vsoller.com.br) reads talks.json and each talk's HTML/images
+    // straight from here via fetch() — a cross-origin browser request, so
+    // it needs CORS headers on the response. Scoped to materiais/* only:
+    // that content is already fully public/unauthenticated, everything
+    // else on the site is untouched.
     const materiaisCorsPolicy = new cloudfront.ResponseHeadersPolicy(this, 'MateriaisCorsPolicy', {
       responseHeadersPolicyName: 'materiais-cors',
       corsBehavior: {
-        accessControlAllowOrigins: ['https://slides.vsoller.com.br'],
+        accessControlAllowOrigins: ['https://deck.vsoller.com.br'],
         accessControlAllowMethods: ['GET', 'HEAD'],
         accessControlAllowHeaders: ['*'],
         accessControlAllowCredentials: false,
         originOverride: true,
       },
+    });
+
+    // Same defaults as the CACHING_OPTIMIZED managed policy, except the
+    // cache key also includes Origin — so a CORS response cached for one
+    // origin (or none) can never be replayed to a different one.
+    const materiaisCachePolicy = new cloudfront.CachePolicy(this, 'MateriaisCachePolicy', {
+      cachePolicyName: 'materiais-cors-aware',
+      defaultTtl: Duration.days(1),
+      minTtl: Duration.seconds(0),
+      maxTtl: Duration.days(365),
+      enableAcceptEncodingGzip: true,
+      enableAcceptEncodingBrotli: true,
+      headerBehavior: cloudfront.CacheHeaderBehavior.allowList('Origin'),
     });
 
     const distribution = new cloudfront.Distribution(this, 'Distribution', {
@@ -88,7 +102,14 @@ function handler(event) {
         'materiais/*': {
           origin: s3Origin,
           viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-          cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
+          // CACHING_OPTIMIZED doesn't vary its cache key by Origin, but
+          // the response DOES vary by Origin (that's what the CORS
+          // policy's dynamic Access-Control-Allow-Origin header does) —
+          // without this, a cache hit can replay one origin's CORS
+          // header to a request from a different origin. Everything
+          // else matches CACHING_OPTIMIZED's defaults (gzip/brotli, long
+          // TTL) — just the cache key changes.
+          cachePolicy: materiaisCachePolicy,
           functionAssociations: [
             { function: directoryIndexFn, eventType: cloudfront.FunctionEventType.VIEWER_REQUEST },
           ],
