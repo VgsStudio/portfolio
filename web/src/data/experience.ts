@@ -12,8 +12,20 @@ export type ExperienceItem = {
 export const professional: ExperienceItem[] = [
   {
     org: 'Dati',
+    role: 'Cloud Architect Engineer I — Consulting',
+    period: 'out/2026 — atual',
+    logo: datiLogo,
+    bullets: [
+      'Desenho e entrega de arquiteturas AWS seguras, escaláveis e com custo otimizado para clientes do time de Consulting.',
+      'Tradução entre negócio e técnico: levantamento de requisitos, alinhamento de expectativas e apresentação de soluções aos clientes.',
+      'Apoio técnico em frentes de modernização, segurança, dados e IA generativa, aplicando o AWS Well-Architected Framework.',
+      'Infraestrutura como código e automação (CDK, CloudFormation, Python) para acelerar e padronizar as entregas.',
+    ],
+  },
+  {
+    org: 'Dati',
     role: 'Analista de Projetos',
-    period: 'fev/2026 — atual',
+    period: 'fev/2026 — out/2026',
     logo: datiLogo,
     bullets: [
       'Organização e gestão de demandas técnicas no ClickUp: fluxos, prioridades, dependências, cronogramas e métricas de risco/performance.',

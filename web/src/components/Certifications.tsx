@@ -5,7 +5,7 @@ import { awsCertifications, extraCredentials } from '../data/certifications'
 export default function Certifications() {
   return (
     <Section id="certificacoes" title="Certificações AWS" compact>
-      <div className="grid grid-cols-3 gap-x-4 gap-y-6 sm:grid-cols-6">
+      <div className="grid grid-cols-3 gap-x-4 gap-y-6 sm:grid-cols-5">
         {awsCertifications.map((cert, i) => (
           <motion.div
             key={cert.name}

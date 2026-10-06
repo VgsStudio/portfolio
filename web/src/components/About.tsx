@@ -8,18 +8,18 @@ export default function About() {
           Sou Engenheiro da Computação formado pelo{' '}
           <span className="text-zinc-200">Instituto Mauá de Tecnologia</span>{' '}
           e atuo como{' '}
-          <span className="text-zinc-200">Analista de Projetos</span> na{' '}
-          <span className="text-zinc-200">Dati</span>, com paixão por Cloud e
-          caminhando para a entrega técnica em{' '}
-          <span className="text-zinc-200">arquitetura de soluções AWS</span>{' '}
-          — hoje organizo cronogramas, riscos e a comunicação entre clientes
-          e times técnicos, sempre envolvido nas decisões de arquitetura em
-          nuvem.
+          <span className="text-zinc-200">Cloud Architect Engineer</span> no
+          time de Consulting da <span className="text-zinc-200">Dati</span>.
+          Venho da área de projetos, onde passei a maior parte do tempo entre
+          clientes e times técnicos — e hoje levo essa bagagem para o lado
+          técnico, traduzindo necessidades de negócio em{' '}
+          <span className="text-zinc-200">arquiteturas AWS</span> seguras,
+          escaláveis e com custo otimizado.
         </p>
         <p className="md:col-span-2">
-          Sou <span className="text-zinc-200">6x AWS Certified</span>{' '}
-          (trilha completa: Foundational, Associate, Professional e
-          Specialty) e{' '}
+          Sou <span className="text-zinc-200">10x AWS Certified</span>{' '}
+          (Foundational, Associate, Professional, Specialty e a nova AI
+          Business Strategist) e{' '}
           <span className="text-zinc-200">Qiskit Advocate</span> — defendi o
           primeiro TCC sobre Computação Quântica da história do IMT Mauá,
           unindo hardware real da IBM Quantum a experimentos com Raspberry

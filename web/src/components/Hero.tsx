@@ -52,7 +52,7 @@ export default function Hero() {
             variants={fadeUp}
             className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-400/30 bg-orange-400/10 px-4 py-1.5 text-sm font-medium tracking-wide text-orange-300"
           >
-            <Sparkles size={14} /> Analista de Projetos · Dati
+            <Sparkles size={14} /> Cloud Architect Engineer · Dati
           </motion.p>
 
           <motion.h1
@@ -70,12 +70,11 @@ export default function Hero() {
             variants={fadeUp}
             className="mx-auto mt-6 max-w-lg text-lg text-zinc-400 md:mx-0"
           >
-            <span className="text-zinc-200">Analista de Projetos</span> com
-            paixão por Cloud, caminhando para a entrega técnica em{' '}
-            <span className="text-zinc-200">
-              arquitetura de soluções AWS
-            </span>{' '}
-            — 6x AWS Certified e Qiskit Advocate.
+            <span className="text-zinc-200">Cloud Architect Engineer</span> no
+            time de Consulting, desenhando e entregando{' '}
+            <span className="text-zinc-200">arquiteturas AWS</span> seguras,
+            escaláveis e com custo otimizado — 10x AWS Certified e Qiskit
+            Advocate.
           </motion.p>
 
           <motion.div
