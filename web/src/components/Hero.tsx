@@ -73,7 +73,7 @@ export default function Hero() {
             <span className="text-zinc-200">Cloud Architect Engineer</span> no
             time de Consulting, desenhando e entregando{' '}
             <span className="text-zinc-200">arquiteturas AWS</span> seguras,
-            escaláveis e com custo otimizado — 10x AWS Certified e Qiskit
+            escaláveis e com custo otimizado — 12x AWS Certified e Qiskit
             Advocate.
           </motion.p>
 
