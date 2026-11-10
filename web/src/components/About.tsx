@@ -17,7 +17,7 @@ export default function About() {
           nuvem.
         </p>
         <p className="md:col-span-2">
-          Sou <span className="text-zinc-200">6x AWS Certified</span>{' '}
+          Sou <span className="text-zinc-200">12x AWS Certified</span>{' '}
           (trilha completa: Foundational, Associate, Professional e
           Specialty) e{' '}
           <span className="text-zinc-200">Qiskit Advocate</span> — defendi o

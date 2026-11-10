@@ -75,7 +75,7 @@ export default function Hero() {
             <span className="text-zinc-200">
               arquitetura de soluções AWS
             </span>{' '}
-            — 6x AWS Certified e Qiskit Advocate.
+            — 12x AWS Certified e Qiskit Advocate.
           </motion.p>
 
           <motion.div
