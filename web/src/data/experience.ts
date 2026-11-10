@@ -12,7 +12,7 @@ export type ExperienceItem = {
 export const professional: ExperienceItem[] = [
   {
     org: 'Dati',
-    role: 'Analista de Projetos',
+    role: 'Cloud Architect Engineer',
     period: 'fev/2026 — atual',
     logo: datiLogo,
     bullets: [

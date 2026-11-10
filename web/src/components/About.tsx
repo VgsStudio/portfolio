@@ -8,13 +8,11 @@ export default function About() {
           Sou Engenheiro da Computação formado pelo{' '}
           <span className="text-zinc-200">Instituto Mauá de Tecnologia</span>{' '}
           e atuo como{' '}
-          <span className="text-zinc-200">Analista de Projetos</span> na{' '}
-          <span className="text-zinc-200">Dati</span>, com paixão por Cloud e
-          caminhando para a entrega técnica em{' '}
+          <span className="text-zinc-200">Cloud Architect Engineer</span> na{' '}
+          <span className="text-zinc-200">Dati</span>, com foco em{' '}
           <span className="text-zinc-200">arquitetura de soluções AWS</span>{' '}
-          — hoje organizo cronogramas, riscos e a comunicação entre clientes
-          e times técnicos, sempre envolvido nas decisões de arquitetura em
-          nuvem.
+          — do desenho da solução à entrega, sempre perto de clientes e times
+          técnicos.
         </p>
         <p className="md:col-span-2">
           Sou <span className="text-zinc-200">12x AWS Certified</span>{' '}
