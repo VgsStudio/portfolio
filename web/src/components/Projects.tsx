@@ -18,6 +18,28 @@ const smallProjects = [
     href: 'https://github.com/VgsStudio/serverless-selfie-sbg',
   },
   {
+    date: 'ago/2026',
+    tag: 'Ferramenta pessoal',
+    title: 'Deck Editor',
+    description:
+      'Editor visual hospedado para as minhas palestras: edito os slides no navegador, com login Cognito e undo/redo, e ele publica direto no repositório das palestras.',
+    tags: ['Cognito', 'S3', 'CloudFront', 'CDK'],
+    href: 'https://github.com/VgsStudio/deck-editor',
+  },
+  {
+    date: 'ago/2026',
+    tag: 'Impressão 3D · Serverless',
+    title: '3D · Vitor Soller',
+    description:
+      'Central pública da minha Ender 3 V3: timeline de impressões, problemas e manutenções, com React na frente e Lambda + DynamoDB atrás, deploy via GitHub Actions com OIDC.',
+    tags: ['Lambda', 'DynamoDB', 'React', 'CDK'],
+    href: 'https://3d.vsoller.com.br',
+    secondary: {
+      label: 'Repositório',
+      href: 'https://github.com/VgsStudio/3d-vsoller',
+    },
+  },
+  {
     date: 'out/2025',
     tag: 'Infra Cloud · ECM517',
     title: 'AWS Capstone — Web App HA & Escalável',
