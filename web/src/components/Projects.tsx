@@ -9,6 +9,15 @@ import devInTheDarkPhoto from '../assets/dev-in-the-dark.webp'
 // Ordenado do mais novo para o mais antigo.
 const smallProjects = [
   {
+    date: '14/11/2026',
+    tag: 'Demo de palestra · Student Builder Group',
+    title: 'Serverless Selfie',
+    description:
+      'Demo ao vivo da palestra "O que é arquitetura Serverless?": a turma tira uma selfie e a AWS devolve uma moldura para o Story, num fluxo assíncrono e orientado a eventos — infra toda em CDK.',
+    tags: ['Step Functions', 'EventBridge', 'Lambda', 'CDK'],
+    href: 'https://github.com/VgsStudio/serverless-selfie-sbg',
+  },
+  {
     date: 'out/2025',
     tag: 'Infra Cloud · ECM517',
     title: 'AWS Capstone — Web App HA & Escalável',
