@@ -17,7 +17,7 @@ export default function About() {
           escaláveis e com custo otimizado.
         </p>
         <p className="md:col-span-2">
-          Sou <span className="text-zinc-200">12x AWS Certified</span>{' '}
+          Sou <span className="text-zinc-200">13x AWS Certified</span>{' '}
           (Foundational, Associate, Professional e Specialty) e{' '}
           <span className="text-zinc-200">Qiskit Advocate</span> — defendi o
           primeiro TCC sobre Computação Quântica da história do IMT Mauá,

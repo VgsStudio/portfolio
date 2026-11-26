@@ -10,6 +10,7 @@ import sap from '../assets/certs/09-sap.png'
 import aip from '../assets/certs/10-aip.png'
 import dop from '../assets/certs/11-dop.png'
 import scs from '../assets/certs/12-scs.png'
+import ans from '../assets/certs/13-ans.png'
 
 export const credlyProfile = 'https://www.credly.com/users/vitor-guirao-soller'
 
@@ -17,7 +18,7 @@ const credly = (id: string) => `https://www.credly.com/badges/${id}`
 
 export const certLevels = ['Foundational', 'Associate', 'Professional', 'Specialty']
 
-// Fonte: perfil público do Credly (consultado em 10/11/2026).
+// Fonte: perfil público do Credly (consultado em 25/11/2026).
 export const awsCertifications = [
   { level: 'Foundational', badge: clf, name: 'AWS Certified Cloud Practitioner', issued: 'jul/2024', url: credly('d954bb40-273b-4614-b240-a1e262cea682') },
   { level: 'Foundational', badge: aif, name: 'AWS Certified AI Practitioner', issued: 'fev/2026', url: credly('2c83321f-ae36-497f-bfbf-7227fbea3315') },
@@ -31,6 +32,7 @@ export const awsCertifications = [
   { level: 'Professional', badge: aip, name: 'AWS Certified Generative AI Developer – Professional', issued: 'out/2026', url: credly('7e249b68-b5b4-41a1-a6c8-8d26c967c79e') },
   { level: 'Professional', badge: dop, name: 'AWS Certified DevOps Engineer – Professional', issued: 'nov/2026', url: credly('6e3d4f0e-9102-4cbb-97da-51567503440f') },
   { level: 'Specialty', badge: scs, name: 'AWS Certified Security – Specialty', issued: 'jul/2026', url: credly('37f1247b-2d76-42f5-818a-536b1e52fcc4') },
+  { level: 'Specialty', badge: ans, name: 'AWS Certified Advanced Networking – Specialty', issued: 'nov/2026', url: credly('877fe09a-2767-40d8-9eb7-34c55a28c5dc') },
 ]
 
 export const extraCredentials = [
