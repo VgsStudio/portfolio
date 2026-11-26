@@ -121,7 +121,7 @@ export default function Hero() {
             transition={{ delay: 0.8, duration: 0.5 }}
             className="absolute -bottom-5 left-1/2 -translate-x-1/2 rounded-full border border-white/10 bg-[#111117] px-4 py-2 text-xs font-medium whitespace-nowrap text-zinc-300 shadow-xl"
           >
-            🏆 Dati · AWS Partner of the Year LATAM 2025
+            🏆 AWS Golden Jacket · 13x AWS Certified
           </motion.div>
         </motion.div>
       </div>
